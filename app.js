@@ -2,6 +2,7 @@ const express = require("express");
 
 const connectDB = require("./db/db.connect");
 const notFoundMiddleware = require("./middlewares/not-found.middleware");
+const postRoutes = require("./routes/post.router");
 
 require("dotenv").config();
 
@@ -13,6 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
   res.send("Welcome to InfyPics-Backend-API");
 });
+
+app.use("/api/v1/posts", postRoutes);
 
 app.use(notFoundMiddleware);
 
