@@ -12,7 +12,9 @@ const getAllPosts = async (req, res) => {
       savedImages: foundPosts,
     });
   } catch (error) {
-    return res.status(500).json({ success: false, message: "server error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
 };
 
@@ -34,7 +36,10 @@ const createPost = async (req, res) => {
         .json({ success: false, message: "Image Already Saved" });
     }
   } catch (error) {
-    return res.status(500).json({ success: false, message: "server error" });
+    console.log("create error", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
 };
 
@@ -64,7 +69,9 @@ const deletePost = async (req, res) => {
       });
     }
   } catch (error) {
-    return res.status(500).json({ success: false, message: "server error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
   }
 };
 

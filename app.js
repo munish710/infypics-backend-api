@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 const connectDB = require("./db/db.connect");
 const notFoundMiddleware = require("./middlewares/not-found.middleware");
@@ -8,6 +9,12 @@ require("dotenv").config();
 
 const app = express();
 
+const corsOptions = {
+  origin: ["http://localhost:3000", "https://infypics.netlify.app"],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

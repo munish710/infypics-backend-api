@@ -15,7 +15,6 @@ const postSchema = new mongoose.Schema({
   },
   postedByUrl: {
     type: String,
-    required: [true, "Author's URL is required"],
   },
   postedByImageUrl: {
     type: String,
