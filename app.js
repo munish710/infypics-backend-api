@@ -1,6 +1,7 @@
 const express = require("express");
 
 const connectDB = require("./db/db.connect");
+const notFoundMiddleware = require("./middlewares/not-found.middleware");
 
 require("dotenv").config();
 
@@ -12,6 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) => {
   res.send("Welcome to InfyPics-Backend-API");
 });
+
+app.use(notFoundMiddleware);
 
 const port = process.env.PORT || 5000;
 
